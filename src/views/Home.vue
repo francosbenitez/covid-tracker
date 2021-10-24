@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <b-button variant="success">
+      Hello World
+    </b-button>
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
