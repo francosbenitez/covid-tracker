@@ -3,6 +3,7 @@
     <DataTitle :text="title" :dataDate="dataDate" />
     <DataBoxes :stats="stats" />
     <CountrySelect @get-country="getCountryData" :countries="countries" />
+    <b-button @click="clearCountryData" v-if="stats.Country">Clear Country</b-button>
   </main>
   <main class="" v-else>
     <div class="">
@@ -43,6 +44,13 @@ export default {
     getCountryData(country) {
       this.stats = country
       this.title = country.Country
+    },
+    async clearCountryData() {
+      this.loading = true
+      const data = await this.fetchCovidData()
+      this.title = 'Global'
+      this.stats = data.Global
+      this.loading = false
     }
   },
   async created() {
